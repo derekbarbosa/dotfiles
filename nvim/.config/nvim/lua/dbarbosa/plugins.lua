@@ -18,15 +18,18 @@ return {
     },
   },
 
+  -- Vim Fugitive
+  { "tpope/vim-fugitive" },
+
   -- Lualine Statusline
-  { "nvim-lualine/lualine.nvim", 
+  { "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  }, 
+  },
 
   -- Blankline for indentation
-  { "lukas-reineke/indent-blankline.nvim", 
-    main = "ibl", 
-    opts = {}, 
+  { "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
   },
 
   -- Telescope (fuzzy searcher)
@@ -44,5 +47,12 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
   },
+
+	-- Mason LSP Configuraition
+	{
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+	},
 
 }

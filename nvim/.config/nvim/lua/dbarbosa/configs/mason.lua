@@ -53,6 +53,7 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, opts)
         vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>d", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<leader>do", function() vim.diagnostic.show() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
     end

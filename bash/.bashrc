@@ -92,6 +92,8 @@ alias mergetool="nvim -c /':G mergetool'"
 alias bashrc="nvim ~/.bashrc"
 alias bash-reload="source ~/.bashrc"
 
+alias dotfiles="cd ~/dotfiles"
+
 alias kinit="kdestroy; kinit"
 alias tmux-config="nvim ~/dotfiles/tmux/.config/tmux/tmux.conf"
 

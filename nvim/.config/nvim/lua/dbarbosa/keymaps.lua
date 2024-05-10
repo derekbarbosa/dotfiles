@@ -32,7 +32,7 @@ map('n', '<leader>fb',"<cmd>:Telescope buffers<CR>" , loud_defaults)
 map('n', '<leader>fh',"<cmd>:Telescope help_tags<CR>" , loud_defaults)
 
 -- LSP Keybindings
-map('n', '<leader>lsps', "<cmd>:LspStop<CR>", loud_defaults)
+map('n', '<leader>lsps', function() vim.lsp.semantic_tokens.stop() end, loud_defaults)
 map('n', '<leader>lspt', "<cmd>:LspStart<CR>", loud_defaults)
 map('n', '<leader>lsp', "<cmd>:LspRestart<CR>", loud_defaults)
 -- VIEW lua/dbarbosa/configs/mason.lua for more lsp keybinds

@@ -17,9 +17,9 @@ opt.expandtab = true -- Convert tabstops to spaces when hitting TAB
 opt.textwidth = 80 -- Wrap after 80 chars
 -- ENDIF
 
-opt.guicursor = "n-v-i-c:block-Cursor"
+opt.guicursor = "n-v-c:block-blinkwait250-blinkoff150-blinkon175,i-ci-cr:hor50-blinkoff50-blinkon75"
 opt.termguicolors = true -- True color support
-opt.showcmd = true 
+opt.showcmd = true
 opt.undolevels = 10000
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup

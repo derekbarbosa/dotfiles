@@ -11,7 +11,7 @@ configs.setup {
   -- Automatically install a missing parser when entering a buffer
   auto_install = true,
   -- List of parsers to ignore installing
-  ignore_install = { "" }, 
+  ignore_install = { "" },
 
   highlight = {
     enable = true, -- false will disable the whole extension
@@ -21,7 +21,6 @@ configs.setup {
   },
 
   indent = { enable = true, disable = { "yaml" } },
-  
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

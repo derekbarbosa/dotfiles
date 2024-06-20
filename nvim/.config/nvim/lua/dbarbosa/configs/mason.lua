@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"yamlls",
 		"rust_analyzer",
+    "mutt_ls",
 	},
 
   handlers = {

@@ -101,6 +101,8 @@ alias mbox-thread="b4 mbox $1 ~/Mail"
 
 alias codium="flatpak run com.vscodium.codium "
 
+alias glab="/home/debarbos/go/cli/bin/glab"
+
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 } 
@@ -111,7 +113,7 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
-export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 LOCAL_BIN=/home/$USER/.local/bin
 

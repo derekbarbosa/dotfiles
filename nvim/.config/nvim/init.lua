@@ -23,6 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("dbarbosa.plugins")
 
 -- Source per-plugin config
+vim.cmd[[colorscheme dracula]]
 require("dbarbosa.configs.lualine")
 require("dbarbosa.configs.blankline")
 require("dbarbosa.configs.nvim-tree")

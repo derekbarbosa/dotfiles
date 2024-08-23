@@ -11,8 +11,8 @@ opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en" }
 
 -- IFDEF tab and spacing configs
-opt.shiftwidth = 2 -- Size of an indent
-opt.tabstop = 2 -- Number of spaces tabs count for
+opt.shiftwidth = 4 -- Size of an indent
+opt.tabstop = 4 -- Number of spaces tabs count for
 opt.expandtab = true -- Convert tabstops to spaces when hitting TAB 
 opt.textwidth = 80 -- Wrap after 80 chars
 -- ENDIF

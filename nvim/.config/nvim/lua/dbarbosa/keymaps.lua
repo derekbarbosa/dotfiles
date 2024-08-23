@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local unmap = vim.keymap.del
 local set = vim.opt
 local defaults = {noremap = true, silent = true}
 local loud_default = {noreamp = true, silent = false}

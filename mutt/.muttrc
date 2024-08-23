@@ -8,18 +8,17 @@ set sort_alias=alias
 set reverse_alias=yes
 # =============== Aliases ==================
 # ================  IMAP ====================
-set imap_user = 'debarbos@redhat.com'
-set imap_pass = 'ENTER PASS' 
+set imap_user  
+set imap_pass 
 set spoolfile = "imaps://imap.gmail.com/lists/Upstream"
-set folder = imaps://imap.gmail.com/
-#set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set folder = "imaps://imap.gmail.com/"
+#set record="~/Mail/outbox"
 set postponed ="imaps://imap.gmail.com/[Gmail]/Drafts"
 set mbox ="imaps://imap.gmail.com/[Gmail]/All Mail"
 # ================  SMTP  ====================
-set smtp_url = "smtp://debarbos@smtp.corp.redhat.com:587/"
+set smtp_url  
 set smtp_pass = $imap_pass
 set ssl_force_tls = yes # Require encrypted connection
-
 # ================  Composition  ====================
 set autoedit
 set editor = `echo \$EDITOR`
@@ -28,5 +27,7 @@ set charset = UTF-8     # value of $LANG; also fallback for send_charset
 # Sender, email address, and sign-off line must match
 unset use_domain        # because joe@localhost is just embarrassing
 set realname = "Derek Barbosa"
-set from = "debarbos@redhat.com"
+set from  
 set use_from = yes
+my_hdr Reply-To: @.com
+set reply_to

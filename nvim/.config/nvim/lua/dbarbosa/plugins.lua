@@ -13,6 +13,9 @@ return {
   -- Vim Fugitive
   { "tpope/vim-fugitive" },
 
+  --  Linux Coding Style
+  { "gregkh/kernel-coding-style"},
+
   -- Lualine Statusline
   { "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },

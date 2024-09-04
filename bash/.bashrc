@@ -103,6 +103,8 @@ alias codium="flatpak run com.vscodium.codium "
 
 alias glab="/home/debarbos/go/cli/bin/glab"
 
+alias mutt="lei up --all && mutt"
+
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 } 

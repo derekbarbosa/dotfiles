@@ -88,13 +88,14 @@ alias sh="bash"
 
 alias vimrc="nvim ~/dotfiles/nvim/.config/nvim/."
 alias mergetool="nvim -c /':G mergetool'"
+alias vimdiff='nvim -d'
 
 alias bashrc="nvim ~/.bashrc"
 alias bash-reload="source ~/.bashrc"
 
 alias dotfiles="cd ~/dotfiles"
 
-alias kinit="kdestroy; kinit"
+alias kinit="kdestroy -A; kinit"
 alias tmux-config="nvim ~/dotfiles/tmux/.config/tmux/tmux.conf"
 
 alias mbox-thread="b4 mbox $1 ~/Mail"
@@ -103,12 +104,11 @@ alias codium="flatpak run com.vscodium.codium "
 
 alias glab="/home/debarbos/go/cli/bin/glab"
 
-alias mutt="lei up --all && mutt"
+alias mutt-update="lei up --all && mutt"
 
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 } 
- 
 export -f format_commits
 
 bind 'set show-all-if-ambiguous on'

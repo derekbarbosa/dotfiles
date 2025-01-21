@@ -3,7 +3,7 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
   -- Add a language of your choice
-  ensure_installed = {"c", "cpp", "python", "lua", "go", "javascript", "html", "erlang", "elixir", "vim", "vimdoc", },
+  ensure_installed = {"c", "cpp", "python", "lua", "go", "javascript", "html", "erlang", "elixir", "vim", "vimdoc", "bash", },
 
   -- Install parsers synchronously
   sync_install = false,

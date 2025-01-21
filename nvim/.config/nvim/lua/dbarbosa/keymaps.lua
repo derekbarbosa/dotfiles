@@ -37,6 +37,8 @@ map('n', '<leader>fk',"<cmd>:Telescope keymaps<CR>" , loud_defaults)
 map('n', '<leader>lsps', "<cmd>:LspStop<CR>", loud_defaults)
 map('n', '<leader>lspt', "<cmd>:LspStart<CR>", loud_defaults)
 map('n', '<leader>lsp', "<cmd>:LspRestart<CR>", loud_defaults)
+map('n', '<leader>hl', "<cmd>:TSBufToggle highlight<CR>", loud_defaults)
+
 -- VIEW lua/dbarbosa/configs/mason.lua for more lsp keybinds
 
 

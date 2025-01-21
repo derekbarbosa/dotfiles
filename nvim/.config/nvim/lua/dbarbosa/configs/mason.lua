@@ -23,6 +23,10 @@ require("mason-lspconfig").setup({
     "mutt_ls",
 	},
 
+	clangd = {
+
+	},
+
   handlers = {
     function(server_name) -- default handler (optiopal)
 
@@ -30,7 +34,6 @@ require("mason-lspconfig").setup({
         }
     end,
   }
-
 })
 
 

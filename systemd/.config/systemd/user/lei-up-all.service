@@ -1,0 +1,10 @@
+[Unit]
+Description=lei up --all service
+ConditionPathExists=%h/.local/share/lei
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/lei up --all -q
+
+[Install]
+WantedBy=mail.target

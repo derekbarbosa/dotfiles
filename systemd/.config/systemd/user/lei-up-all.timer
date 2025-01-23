@@ -1,0 +1,9 @@
+[Unit]
+Description=lei up --all timer
+ConditionPathExists=%h/.local/share/lei
+
+[Timer]
+OnUnitInactiveSec=10m
+
+[Install]
+WantedBy=default.target

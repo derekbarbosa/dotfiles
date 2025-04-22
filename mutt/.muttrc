@@ -6,17 +6,22 @@ set message_cachedir="~/.mutt/cache/bodies/"
 set sort=threads
 set sort_alias=alias
 set reverse_alias=yes
+set timeout=30
+set sort_browser="reverse-date"
+bind index "G" imap-fetch-mail
+bind index - collapse-thread
 # =============== Aliases ==================
 # ================  IMAP ====================
-set imap_user  
-set imap_pass 
+set imap_user = 'debarbos@redhat.com'
+set imap_pass = 
 set spoolfile = "imaps://imap.gmail.com/lists/Upstream"
 set folder = "imaps://imap.gmail.com/"
-#set record="~/Mail/outbox"
+set record="imaps://imap.gmail.com/Sent"
+set trash="imaps://imap.gmail.com/Trash"
 set postponed ="imaps://imap.gmail.com/[Gmail]/Drafts"
 set mbox ="imaps://imap.gmail.com/[Gmail]/All Mail"
 # ================  SMTP  ====================
-set smtp_url  
+set smtp_url = "smtp://debarbos@smtp.corp.redhat.com:587/"
 set smtp_pass = $imap_pass
 set ssl_force_tls = yes # Require encrypted connection
 # ================  Composition  ====================
@@ -27,7 +32,8 @@ set charset = UTF-8     # value of $LANG; also fallback for send_charset
 # Sender, email address, and sign-off line must match
 unset use_domain        # because joe@localhost is just embarrassing
 set realname = "Derek Barbosa"
-set from  
+set from = "debarbos@redhat.com"
 set use_from = yes
-my_hdr Reply-To: @.com
+my_hdr Reply-To: debarbos@redhat.com
 set reply_to
+

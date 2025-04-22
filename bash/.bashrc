@@ -100,11 +100,13 @@ alias tmux-config="nvim ~/dotfiles/tmux/.config/tmux/tmux.conf"
 
 alias mbox-thread="b4 mbox $1 ~/Mail"
 
+alias owners_check="pushd ~/scripts/owners-tools/; git pull && owners_check.py"
+
 alias codium="flatpak run com.vscodium.codium "
 
-alias glab="/home/debarbos/go/cli/bin/glab"
-
 alias mutt-update="lei up --all && mutt"
+alias mlrt="mutt -f ~/Mail/RT"
+alias mlserial="mutt -f ~/Mail/serial"
 
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
@@ -116,8 +118,11 @@ bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export KUBECONFIG=/home/$USER/.kubeconfig.ran-vcl101
 
 LOCAL_BIN=/home/$USER/.local/bin
 
 PATH=$PATH:$LOCAL_BIN
 . "$HOME/.cargo/env"
+
+eval "$(direnv hook bash)"

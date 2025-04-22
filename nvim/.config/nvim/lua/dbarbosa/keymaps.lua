@@ -9,7 +9,7 @@ map("n", "\\", "<Nop>", {silent = true, remap = false})
 vim.g.mapleader = "\\"
 
 -- Source Current File (for configs)
-map('n', '<leader>soc', ':so %<CR>', loud_defaults)
+map('n', '<leader>src', ':so %<CR>', loud_defaults)
 
 -- Tab & Buffer mgmt
 map("n", "<leader>b", ":buffers<CR>:buffer<Space>")
@@ -32,6 +32,7 @@ map('n', '<leader>fg',"<cmd>:Telescope live_grep<CR>" , loud_defaults)
 map('n', '<leader>fb',"<cmd>:Telescope buffers<CR>" , loud_defaults)
 map('n', '<leader>fh',"<cmd>:Telescope help_tags<CR>" , loud_defaults)
 map('n', '<leader>fk',"<cmd>:Telescope keymaps<CR>" , loud_defaults)
+map('n', '<leader>fq', "<cmd>:Telescope quickfix<CR>", loud_defaults)
 
 -- LSP Keybindings
 map('n', '<leader>lsps', "<cmd>:LspStop<CR>", loud_defaults)

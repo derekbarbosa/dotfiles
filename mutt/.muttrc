@@ -1,39 +1,87 @@
-# =============== General ==================
-set editor="/usr/bin/nvim"
-set sendmail = "/usr/bin/msmtp -C /home/debarbos/.msmtprc -a redhat"
-set header_cache="~/.mutt/cache/headers/"
-set message_cachedir="~/.mutt/cache/bodies/"
-set sort=threads
-set sort_alias=alias
-set reverse_alias=yes
-set timeout=30
-set sort_browser="reverse-date"
-bind index "G" imap-fetch-mail
-bind index - collapse-thread
-# =============== Aliases ==================
-# ================  IMAP ====================
-set imap_user = 'debarbos@redhat.com'
-set imap_pass = "`pass show work/imap`"
-set spoolfile = "imaps://imap.gmail.com/lists/Upstream"
-set folder = "imaps://imap.gmail.com/"
-set record="imaps://imap.gmail.com/Sent"
-set trash="imaps://imap.gmail.com/Trash"
-set postponed ="imaps://imap.gmail.com/[Gmail]/Drafts"
-set mbox ="imaps://imap.gmail.com/[Gmail]/All Mail"
-# ================  SMTP  ====================
-set smtp_url = "smtp://debarbos@smtp.corp.redhat.com:587/"
-set smtp_pass = $imap_pass
-set ssl_force_tls = yes # Require encrypted connection
-# ================  Composition  ====================
-set autoedit
-set editor = `echo \$EDITOR`
-set edit_headers = yes  # See the headers when editing
-set charset = UTF-8     # value of $LANG; also fallback for send_charset
-# Sender, email address, and sign-off line must match
-unset use_domain        # because joe@localhost is just embarrassing
+# =============== USER ==================
 set realname = "Derek Barbosa"
 set from = "debarbos@redhat.com"
 set use_from = yes
+unset use_domain
 my_hdr Reply-To: debarbos@redhat.com
-set reply_to
+set reverse_name
+
+# =============== Editor & Composition ==================
+set editor="/usr/bin/nvim"
+set autoedit
+set edit_headers = yes
+set charset = "utf-8"
+set signature = "~/.mutt/signature"
+
+# ================ IMAP ====================
+#set record="imaps://imap.gmail.com/Sent"
+#set trash="imaps://imap.gmail.com/Trash"
+#set postponed ="imaps://imap.gmail.com/[Gmail]/Drafts"
+#set mbox ="imaps://imap.gmail.com/[Gmail]/All Mail"
+set imap_user = "debarbos@redhat.com"
+set imap_pass = "`pass show work/imap`"
+
+# ================ IMAP Folders ====================
+set spoolfile = "imaps://imap.gmail.com/lists/Upstream"
+set folder    = "imaps://imap.gmail.com/"
+set record    = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+set trash     = "+[Gmail]/Trash"
+
+mailboxes "+lists/Upstream" "+lists/CoreKernel" "~/Mail/RT" "~/Mail/serial" "+INBOX" "+[Gmail]/Important" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/Trash"
+# ================ Mail Send ====================
+set sendmail = "/usr/bin/msmtp -C /home/debarbos/.msmtprc -a redhat"
+
+# set smtp_url = "smtp://debarbos@smtp.corp.redhat.com:587/"
+# set smtp_pass = $imap_pass
+# set ssl_force_tls = yes # Require encrypted connection
+
+# ================ Caching ====================
+set header_cache="~/.mutt/cache/headers/"
+set message_cachedir="~/.mutt/cache/bodies/"
+unset record
+set timeout=30
+
+# =============== UI ==================
+set sort=threads
+set sort_alias=alias
+set reverse_alias=yes
+set sort_browser="reverse-date"
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+
+# =============== Sidebar ==================
+set sidebar_visible
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set mail_check_stats
+
+# =============== Keybinds ==================
+bind index "G" imap-fetch-mail
+bind index - collapse-thread
+
+bind index,pager \CJ sidebar-prev
+bind index,pager \CK sidebar-next
+bind index,pager \CE sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+bind index j next-entry
+bind index k previous-entry
+bind pager j next-line
+bind pager k previous-line
+
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+# =============== General ==================
+set mail_check = 15
+set move = no
+
+# =============== Misc ==================
 

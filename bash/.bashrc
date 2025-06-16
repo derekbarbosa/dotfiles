@@ -198,16 +198,6 @@ alias bashrc="nvim ~/.bashrc"
 alias bash-reload="source ~/.bashrc"
 alias tmux-config="nvim ~/dotfiles/tmux/.config/tmux/tmux.conf"
 
-alias kinit="kdestroy -A; kinit"
-alias vpnauto="rm -f ~/.gnupg/public-keys.d/pubring.db.lock; vpnauto"
-
-alias mbox-thread="b4 mbox $1 ~/Mail"
-alias mutt-update="lei up --all && mutt"
-alias mlrt="mutt -f ~/Mail/RT"
-alias mlserial="mutt -f ~/Mail/serial"
-
-alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/activate; ./owners_check.py"
-
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 } 
@@ -216,13 +206,3 @@ export -f format_commits
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
-
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-export KUBECONFIG=/home/$USER/.kubeconfig.ran-vcl101
-export GNOME_KEYRING_CONTROL=/run/user/4209965/keyring/
-
-LOCAL_BIN=/home/$USER/.local/bin
-
-PATH=$PATH:$LOCAL_BIN
-. "$HOME/.cargo/env"
-

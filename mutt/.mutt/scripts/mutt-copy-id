@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# ~/.local/bin/mutt-copy-id
+#
+# This script receives the full content of an email via standard input,
+# extracts the Message-ID, and copies it to the Wayland clipboard.
+#
+# Dependencies:
+# - procmail (for the 'formail' command)
+# - wl-clipboard (for the 'wl-copy' command)
+# - libnotify (for the 'notify-send' command, optional)
+
+# Use formail to robustly extract the content of the Message-ID header.
+# Pipe the result to sed to remove the "Message-ID: " prefix and leading space.
+# Pipe to tr to remove any newline characters for a clean copy.
+# Finally, pipe the clean ID to wl-copy.
+formail -x Message-ID: | sed 's/^Message-ID: *//' | tr -d '\n' | wl-copy
+
+# (Optional) Send a desktop notification to confirm that the action was successful.
+notify-send "Neomutt" "Message-ID copied to clipboard."

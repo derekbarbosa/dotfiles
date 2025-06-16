@@ -14,7 +14,7 @@ opt.spelllang = { "en" }
 opt.textwidth = 80 -- Wrap after 80 chars
 opt.smartindent = true -- Insert indents automatically
 
--- Will be overwritten by LinuxTabs 
+-- Will be overwritten by LinuxTabs
 opt.tabstop = 4 -- Size of an indent
 opt.shiftwidth = 4 -- Size of an indent
 opt.softtabstop = 4

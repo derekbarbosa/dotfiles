@@ -20,7 +20,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"yamlls",
 		"rust_analyzer",
-    "mutt_ls",
+		"mutt_ls",
 	},
 
 	clangd = {

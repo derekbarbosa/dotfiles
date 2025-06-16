@@ -202,9 +202,8 @@ alias kinit="kdestroy -A; kinit"
 alias vpnauto="rm -f ~/.gnupg/public-keys.d/pubring.db.lock; vpnauto"
 
 alias mbox-thread="b4 mbox $1 ~/Mail"
-alias mutt-update="lei up --all && mutt"
-alias mlrt="mutt -f ~/Mail/RT"
-alias mlserial="mutt -f ~/Mail/serial"
+alias mutt-update="lei up --all && neomutt"
+alias mutt="neomutt"
 
 alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/activate; ./owners_check.py"
 

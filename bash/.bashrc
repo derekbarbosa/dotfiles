@@ -3,7 +3,18 @@
 #        STANDALONE POWERLINE-NAKED PROMPT (WITH DETAILED GIT INFO)
 #
 # ==============================================================================
-
+#
+# DISCLAIMER:
+#
+# PORTIONS OF THIS CODE WAS INSPIRED BY/CUT-PASTED FROM GIT-PROMPT.SH, 
+######### Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
+######### Distributed under the GNU General Public License, version 2.0.
+#
+# PORTIONS OF THIS CODE WERE ALSO INSPIRED BY THE OH-MY-BASH FRAMEWORK (OMB) 
+# WHICH IS LICENSED UNDER THE MIT LICENSE BY Robby Russell (2009-2017), Toan Nguyen (2017-present)
+# AND THE RESPECTIVE CONTRIBUTORS.
+######### https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/LICENSE.md
+#
 # ------------------------------------------------------------------------------
 # Part 1: Main Configuration -- Tweak your prompt's look and feel here!
 # ------------------------------------------------------------------------------
@@ -74,7 +85,6 @@ get_python_venv_segment() {
 }
 
 # --- Segment: Git Repository Status (detailed) ---
-# CHANGED: Complete rewrite for accuracy, performance, and desired format.
 get_git_segment() {
     local git_dir
     git_dir=$(git rev-parse --git-dir 2> /dev/null)
@@ -210,8 +220,8 @@ alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/act
 format_commits() {  
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 } 
-export -f format_commits
 
+export -f format_commits
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'

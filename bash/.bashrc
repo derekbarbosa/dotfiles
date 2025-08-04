@@ -6,11 +6,11 @@
 #
 # DISCLAIMER:
 #
-# PORTIONS OF THIS CODE WAS INSPIRED BY/CUT-PASTED FROM GIT-PROMPT.SH, 
+# PORTIONS OF THIS CODE WAS INSPIRED BY/CUT-PASTED FROM GIT-PROMPT.SH,
 ######### Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
 ######### Distributed under the GNU General Public License, version 2.0.
 #
-# PORTIONS OF THIS CODE WERE ALSO INSPIRED BY THE OH-MY-BASH FRAMEWORK (OMB) 
+# PORTIONS OF THIS CODE WERE ALSO INSPIRED BY THE OH-MY-BASH FRAMEWORK (OMB)
 # WHICH IS LICENSED UNDER THE MIT LICENSE BY Robby Russell (2009-2017), Toan Nguyen (2017-present)
 # AND THE RESPECTIVE CONTRIBUTORS.
 ######### https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/LICENSE.md
@@ -37,6 +37,7 @@ C_RESET='\[\033[0m\]'
 C_USER_INFO='\[\033[0;32m\]'         # Green
 C_DIR='\[\033[0;34m\]'               # Blue
 C_GIT_BRANCH='\[\033[0;36m\]'        # Cyan for the branch info
+C_GIT_STASH='\[\033[38;5;208m\]'         # Orange for the stash count
 C_GIT_STATUS='\[\033[0;33m\]'        # Yellow for status counts
 C_PYTHON_VENV='\[\033[0;33m\]'       # Yellow
 C_LAST_STATUS_ERROR='\[\033[0;31m\]' # Red
@@ -94,6 +95,9 @@ get_git_segment() {
                     branch_name=$(git rev-parse --short HEAD 2>/dev/null) || \
                     return # Not on a branch
 
+	# Get just the remote's name (e.g., "origin")
+    local remote_name=$(git config --get "branch.${branch_name}.remote" 2>/dev/null)
+
     local status_string=""
 
     # Get upstream tracking info
@@ -111,19 +115,43 @@ get_git_segment() {
             status_string+=" ${GIT_PROMPT_BEHIND_ICON}${behind}"
         fi
     fi
-
+	
     # Get file status counts
+	local stash_count=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
     local untracked_count=$(git ls-files --others --exclude-standard --directory --no-empty-directory | wc -l | tr -d ' ')
     local staged_count=$(git diff --name-only --cached | wc -l | tr -d ' ')
     local modified_count=$(git diff --name-only | wc -l | tr -d ' ')
-    
+
     local file_status=""
     if [[ "$untracked_count" -gt 0 ]]; then file_status+=" ${GIT_PROMPT_UNTRACKED_ICON}${untracked_count}"; fi
     if [[ "$staged_count" -gt 0 ]]; then file_status+=" ${GIT_PROMPT_STAGED_ICON}${staged_count}"; fi
     if [[ "$modified_count" -gt 0 ]]; then file_status+=" ${GIT_PROMPT_MODIFIED_ICON}${modified_count}"; fi
 
-    # Assemble the final string
-    echo -n "${C_GIT_BRANCH}${GIT_PROMPT_BRANCH_ICON}${branch_name}${C_RESET}${C_GIT_STATUS}${status_string}${file_status}${C_RESET}"
+    local final_git_string=""
+
+    # Start with the branch icon
+    final_git_string+="${C_GIT_BRANCH}${GIT_PROMPT_BRANCH_ICON}"
+
+    # Add remote name if it exists
+    if [[ -n "$remote_name" ]]; then
+		final_git_string+="(${remote_name}) "
+    fi
+
+    # Add local branch name
+    final_git_string+="${branch_name}"
+
+    # Add status info (ahead/behind, file counts)
+    final_git_string+="${C_RESET}${C_GIT_STATUS}${status_string}${file_status}${C_RESET}"
+	
+	# Stash indicator
+    if [[ "$stash_count" -gt 0 ]]; then
+		final_git_string+="${C_GIT_STASH} @{${stash_count}}${C_RESET}"
+    fi
+
+	# Reset colors
+	final_git_string+="${C_RESET}"
+
+    echo -n "$final_git_string"
 }
 
 
@@ -190,6 +218,10 @@ alias fgrep='fgrep --color=auto'
 
 # Set personal aliases and variables.
 
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
 export TERM=xterm-256color
 
 export LESSEDIT='%E ?lm+%lm. %g'
@@ -223,6 +255,8 @@ format_commits() {
 
 export -f format_commits
 bind 'set show-all-if-ambiguous on'
+
+
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 

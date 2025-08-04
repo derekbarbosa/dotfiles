@@ -24,7 +24,8 @@ set imap_pass = "`pass show work/imap`"
 # ================ IMAP Folders ====================
 set spoolfile = "imaps://imap.gmail.com/lists/Upstream"
 set folder    = "imaps://imap.gmail.com/"
-set record    = "+[Gmail]/Sent Mail"
+set record    = "imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set copy      = yes
 set postponed = "+[Gmail]/Drafts"
 set trash     = "+[Gmail]/Trash"
 
@@ -37,18 +38,17 @@ set sendmail = "/usr/bin/msmtp -C /home/debarbos/.msmtprc -a redhat"
 # set ssl_force_tls = yes # Require encrypted connection
 
 # ================ Caching ====================
-set header_cache="~/.mutt/cache/headers/"
-set message_cachedir="~/.mutt/cache/bodies/"
-unset record
-set timeout=30
+set header_cache     = "~/.mutt/cache/headers/"
+set message_cachedir = "~/.mutt/cache/bodies/"
+set timeout          = 30
 
 # =============== UI ==================
-set sort=threads
-set sort_alias=alias
-set reverse_alias=yes
-set sort_browser="reverse-date"
+set sort              = threads
+set sort_alias        = alias
+set reverse_alias     = yes
+set sort_browser      = "reverse-date"
 set pager_index_lines = 10
-set pager_context = 3
+set pager_context     = 3
 set pager_stop
 set menu_scroll
 
@@ -56,7 +56,7 @@ set menu_scroll
 set sidebar_visible
 set sidebar_short_path
 set sidebar_folder_indent
-set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set sidebar_format     = "%B %* [%?N?%N / ?%S]"
 set mail_check_stats
 
 # =============== Macros ==================

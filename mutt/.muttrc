@@ -64,7 +64,6 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Ma
 macro index,pager \Cy "<pipe-message>~/.mutt/scripts/mutt-copy-id<Enter>" "Copy Message-ID to clipboard"
 
 # =============== Keybinds ==================
-bind index "G" imap-fetch-mail
 bind index - collapse-thread
 
 bind index,pager \CJ sidebar-next
@@ -79,10 +78,10 @@ bind pager k previous-line
 
 bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
+# bind pager g top
+# bind pager G bottom
+# bind attach,index g first-entry
+# bind attach,index G last-entry
 
 # =============== General ==================
 set mail_check = 15

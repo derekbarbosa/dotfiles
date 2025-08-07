@@ -1,6 +1,5 @@
 require("ibl").setup({
-  indent = {
+	indent = {
 		tab_char = "▎",
 	},
 })
-

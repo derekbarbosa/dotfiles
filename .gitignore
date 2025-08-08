@@ -1,2 +1,4 @@
-mutt/
-mutt/.muttrc
+!/bash/*
+!/nvim/*
+!/ctags/*
+!/lei/*

@@ -1,0 +1,28 @@
+function console()
+{
+    local HOST="$1"
+    local SERVER
+
+    if test -z "${HOST}"; then
+        echo "Usage: console HOST" >&2
+        return 1
+    fi
+
+    case "${HOST}" in
+        *bos2*) SERVER="conserver1.cons-002.prod.bos2.dc.redhat.com" ;;
+        *rdu*)  SERVER="conserver1.cons-002.prod.rdu2.dc.redhat.com" ;;
+        *brq*)  SERVER="conserver1.cons-002.prod.brq2.dc.redhat.com" ;;
+        *pek*)  SERVER="conserver1.cons-002.prod.pek2.dc.redhat.com" ;;
+        *pnq*)  SERVER="conserver1.cons-002.prod.pnq2.dc.redhat.com" ;;
+        *blr*)  SERVER="conserver1.cons-002.prod.pnq2.dc.redhat.com" ;;
+        *tlv*)  SERVER="conserver1.cons-002.prod.tlv2.dc.redhat.com" ;;
+    esac
+
+    if test -z "${SERVER}"; then
+        echo "No matching conserver found for ${HOST}" >&2
+        return 1
+    fi
+
+    /usr/bin/console -M "${SERVER}" "${HOST}"
+}
+

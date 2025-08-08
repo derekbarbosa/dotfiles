@@ -7,29 +7,36 @@
 -- ]] --
 
 return {
-	-- Dracula Colorscheming
-	{ "Mofiqul/dracula.nvim" },
+	-- Colorscheming
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+	},
 
 	-- Vim Fugitive
 	{ "tpope/vim-fugitive" },
 
 	--  Linux Coding Style
-	{ "gregkh/kernel-coding-style"},
+	{ "gregkh/kernel-coding-style" },
 
 	-- Lualine Statusline
-	{ "nvim-lualine/lualine.nvim",
-	  dependencies = { "nvim-tree/nvim-web-devicons" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	-- Blankline for indentation
-	{ "lukas-reineke/indent-blankline.nvim",
-	  main = "ibl",
-	  opts = {},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
 	},
 
 	-- Telescope (fuzzy searcher)
-	{ 'nvim-telescope/telescope.nvim', tag = '0.1.6',
-	  dependencies = { 'nvim-lua/plenary.nvim' },
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.6',
+		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
 
 	-- TreeSitter (parser and syntax gen tool)
@@ -37,10 +44,10 @@ return {
 
 	-- NVIM-tree (NERDTree but neovim)
 	{
-	  'nvim-tree/nvim-tree.lua',
-	  dependencies = {
-	    'nvim-tree/nvim-web-devicons',
-	  },
+		'nvim-tree/nvim-tree.lua',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons',
+		},
 	},
 
 	-- Mason LSP Configuraition

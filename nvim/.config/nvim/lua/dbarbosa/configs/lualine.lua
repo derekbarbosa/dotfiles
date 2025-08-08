@@ -1,15 +1,12 @@
-local auto_custom = require('lualine.themes.auto')
-auto_custom.normal.c.bg = 'none'
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = auto_custom,
+		theme = 'kanagawa',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = {
 			'Mason',
 			'Lazy',
-			'NvimTree',
 			statusline = {},
 			winbar = {},
 		},

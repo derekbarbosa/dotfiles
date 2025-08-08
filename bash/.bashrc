@@ -249,14 +249,12 @@ alias mutt="neomutt"
 
 alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/activate; ./owners_check.py"
 
-format_commits() {  
+format_commits() {
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
-} 
-
+}
 export -f format_commits
+
 bind 'set show-all-if-ambiguous on'
-
-
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 

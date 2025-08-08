@@ -7,6 +7,7 @@ require('lualine').setup {
 		disabled_filetypes = {
 			'Mason',
 			'Lazy',
+			'NvimTree',
 			statusline = {},
 			winbar = {},
 		},

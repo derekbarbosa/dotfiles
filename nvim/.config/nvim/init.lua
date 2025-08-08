@@ -28,6 +28,7 @@ vim.cmd("colorscheme kanagawa")
 
 -- Source per-plugin config
 require("dbarbosa.configs.lualine")
+vim.o.laststatus = 3 -- Force laststatus overwrite
 require("dbarbosa.configs.blankline")
 require("dbarbosa.configs.nvim-tree")
 require("dbarbosa.configs.treesitter")

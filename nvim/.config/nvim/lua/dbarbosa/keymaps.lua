@@ -29,6 +29,8 @@ map("n", "<leader>t", "<cmd>:NvimTreeToggle<CR>", { noremap = false, silent = fa
 -- Telescope Keybindings
 map('n', '<leader>ff', "<cmd>:Telescope find_files<CR>", loud_defaults)
 map('n', '<leader>fg', "<cmd>:Telescope live_grep<CR>", loud_defaults)
+map('n', '<leader>fs', "<cmd>:Telescope grep_string<CR>", loud_defaults)
+map('n', '<leader>d',  "<cmd>:Telescope diagnostics<CR>", loud_defaults)
 map('n', '<leader>fb', "<cmd>:Telescope buffers<CR>", loud_defaults)
 map('n', '<leader>fh', "<cmd>:Telescope help_tags<CR>", loud_defaults)
 map('n', '<leader>fk', "<cmd>:Telescope keymaps<CR>", loud_defaults)

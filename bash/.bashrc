@@ -246,6 +246,7 @@ alias vpnauto="rm -f ~/.gnupg/public-keys.d/pubring.db.lock; vpnauto"
 alias mbox-thread="b4 mbox $1 ~/Mail"
 alias mutt-update="lei up --all && neomutt"
 alias mutt="neomutt"
+alias mutt-upstream="neomutt -e 'unset signature' -e 'set send_charset=utf-8'"
 
 alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/activate; ./owners_check.py"
 

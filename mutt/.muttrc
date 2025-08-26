@@ -88,4 +88,4 @@ set mail_check = 15
 set move = no
 
 # =============== Misc ==================
-
+color status brightwhite magenta

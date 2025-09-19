@@ -18,7 +18,7 @@ opt.undolevels = 10000
 opt.textwidth = 80     -- Wrap after 80 chars
 opt.smartindent = true -- Insert indents automatically
 
--- Will be overwritten by LinuxTabs
+-- !IFDEF LinuxTabs augroup
 opt.expandtab = false -- Convert tabstops to spaces when hitting TAB
 opt.tabstop = 4       -- Size of an indent
 opt.shiftwidth = 4    -- Size of an indent
@@ -44,13 +44,25 @@ opt.termguicolors = true -- True color support
 vim.api.nvim_create_augroup("LinuxTabs", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "LinuxTabs",
-	pattern = { "*.c", "*.h", "*kconfig", "*.rst", "*.diff", "*.dts" },
+	pattern = { "*.c", "*.h", "*kconfig", "*.rst", "*.diff", "*.dts", "~/workspace/**" },
 	callback = function()
-		opt.tabstop = 8   -- Size of an indent
+		opt.textwidth = 75 -- Wrap after 80 chars
+		opt.tabstop = 8 -- Size of an indent
 		opt.shiftwidth = 8 -- Size of an indent
 		opt.softtabstop = 8
+		opt.autoindent = true -- allows `gq` to respect tabstops
 		opt.expandtab = false -- Convert tabstops to spaces when hitting TAB
-		cmd('LinuxCodingStyle') -- This may be uneeded
+		require("lint").try_lint("checkpatch")
+	end
+})
+
+-- Rust Linting Autocommands
+vim.api.nvim_create_augroup("Rust", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = "Rust",
+	pattern = { "*.rs", "Cargo.toml",},
+	callback = function()
+		require("lint").try_lint("clippy")
 	end
 })
 

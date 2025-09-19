@@ -50,11 +50,22 @@ return {
 		},
 	},
 
-	-- Mason LSP Configuraition
+	-- Mason LSP Configuration
 	{
+		"neovim/nvim-lspconfig",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
 	},
 
+	-- nvim-lint Configuration
+	{
+		"mfussenegger/nvim-lint",
+	},
+
+	-- mason-nvim-lint Configuration
+	{
+		"williamboman/mason.nvim",
+		"mfussenegger/nvim-lint",
+		"rshkarin/mason-nvim-lint",
+	},
 }

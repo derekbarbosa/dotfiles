@@ -1,0 +1,12 @@
+; to refresh with new results, run: lei up /home/debarbos/Mail/rt
+; `maxuid' and `lastresult' lines are maintained by "lei up" for optimization
+[lei]
+	q = (dfn:kernel/sched/* \\n OR dfn:kernel/locking/* \\n OR dfn:kernel/printk/* \\n OR dfn:kernel/irq/*) AND rt:6.week.ago..
+[lei "q"]
+	include = https://lore.kernel.org/all/
+	external = 1
+	local = 1
+	remote = 1
+	threads = 1
+	dedupe = mid
+	output = maildir:/home/debarbos/Mail/rt

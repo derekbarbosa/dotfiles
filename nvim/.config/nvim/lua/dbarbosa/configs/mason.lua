@@ -1,3 +1,5 @@
+require("dbarbosa.configs.lsp")
+
 require("mason").setup({
 	ui = {
 		icons = {
@@ -9,30 +11,23 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "clangd",
+	ensure_installed = {
+		"clangd",
 		"bashls",
 		"dockerls",
-		"elixirls",
 		"gopls",
 		"html",
 		"htmx",
 		"lua_ls",
+		"mutt_ls",
 		"pyright",
 		"yamlls",
 		"rust_analyzer",
-		"mutt_ls",
 	},
 
-	clangd = {
+	--clangd = {},
 
-	},
-
-	handlers = {
-		function(server_name) -- default handler (optiopal)
-			require("lspconfig")[server_name].setup {
-			}
-		end,
-	}
+	automatic_enable = true,
 })
 
 

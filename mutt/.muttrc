@@ -29,7 +29,7 @@ set copy      = yes
 set postponed = "+[Gmail]/Drafts"
 set trash     = "+[Gmail]/Trash"
 
-mailboxes "+lists/Upstream" "+lists/CoreKernel" "~/Mail/RT" "~/Mail/serial" "+INBOX" "+[Gmail]/Important" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/Trash"
+mailboxes "+lists/Upstream" "+lists/CoreKernel" "~/Mail/rt" "~/Mail/serial" "+INBOX" "+[Gmail]/Important" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/Trash"
 # ================ Mail Send ====================
 set sendmail = "/usr/bin/msmtp -C /home/debarbos/.msmtprc -a redhat"
 

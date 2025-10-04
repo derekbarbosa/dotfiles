@@ -30,6 +30,10 @@ require("mason-lspconfig").setup({
 	automatic_enable = true,
 })
 
+require('mason-nvim-lint').setup({
+	ensure_installed = { "vale", "jsonlint", "yamllint" },
+	ignore_install = { "checkpatch", "tflint", "janet", "clj-kondo", "inko", "ruby" },
+})
 
 -- Setup LSP Attachment keybinds here
 local augroup = vim.api.nvim_create_augroup

@@ -52,17 +52,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		opt.softtabstop = 8
 		opt.autoindent = true -- allows `gq` to respect tabstops
 		opt.expandtab = false -- Convert tabstops to spaces when hitting TAB
-		require("lint").try_lint("checkpatch")
-	end
-})
-
--- Rust Linting Autocommands
-vim.api.nvim_create_augroup("Rust", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	group = "Rust",
-	pattern = { "*.rs", "Cargo.toml",},
-	callback = function()
-		require("lint").try_lint("clippy")
 	end
 })
 
@@ -76,3 +65,18 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	end
 })
 -- ENDIF
+
+-- Diagnostic Configurations
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = false,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})

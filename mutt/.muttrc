@@ -29,7 +29,7 @@ set copy      = yes
 set postponed = "+[Gmail]/Drafts"
 set trash     = "+[Gmail]/Trash"
 
-mailboxes "+lists/Upstream" "+lists/CoreKernel" "~/Mail/rt" "~/Mail/serial" "+INBOX" "+[Gmail]/Important" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/Trash"
+mailboxes "+lists/Upstream" "+lists/CoreKernel" "~/Mail/rt" "~/Mail/printk" "~/Mail/serial" "+INBOX" "+[Gmail]/Important" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/Trash"
 # ================ Mail Send ====================
 set sendmail = "/usr/bin/msmtp -C /home/debarbos/.msmtprc -a redhat"
 
@@ -43,12 +43,14 @@ set message_cachedir = "~/.mutt/cache/bodies/"
 set timeout          = 30
 
 # =============== UI ==================
-set sort              = threads
-set sort_alias        = alias
-set reverse_alias     = yes
-set sort_browser      = "reverse-date"
-set pager_index_lines = 10
-set pager_context     = 3
+set use_threads         = yes
+set sort                = last-date
+set sort_aux            = date
+set sort_alias          = alias
+set reverse_alias       = yes
+set sort_browser        = "reverse-date"
+set pager_index_lines   = 10
+set pager_context       = 3
 set pager_stop
 set menu_scroll
 

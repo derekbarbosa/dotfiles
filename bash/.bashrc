@@ -65,6 +65,7 @@ get_user_info_segment() {
     echo -n "${C_USER_INFO}\u@\h${C_RESET}"
   elif [ -f "/run/.toolboxenv" ] && [ -f "/run/.containerenv" ]; then
     local toolbx_name
+	eval "$(direnv hook bash)"
     toolbx_name=$(grep -E '^name="' /run/.containerenv | cut -d '"' -f 2)
     echo -n "${C_USER_INFO}\u@${toolbx_name}${C_RESET}"
   else
@@ -259,12 +260,22 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+#export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 export KUBECONFIG=/home/$USER/.kubeconfig.ran-vcl101
 export GNOME_KEYRING_CONTROL=/run/user/4209965/keyring/
 
 LOCAL_BIN=/home/$USER/.local/bin
+GOPATH=/home/$USER/go/bin
 
-PATH=$PATH:$LOCAL_BIN
+. "$HOME/gcp_api"
+. "$HOME/gemini_api_key"
+
+PATH=$PATH:$LOCAL_BIN:$GOPATH
 . "$HOME/.cargo/env"
 
+if [ -f "/run/.toolboxenv" ] && [ -f "/run/.containerenv" ]; then
+	eval "$(direnv hook bash)"
+	unalias vim
+	export EDITOR='vim'
+fi

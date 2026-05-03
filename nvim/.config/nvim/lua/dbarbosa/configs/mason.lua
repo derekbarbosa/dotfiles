@@ -19,6 +19,8 @@ require("mason-lspconfig").setup({
 		"html",
 		"htmx",
 		"lua_ls",
+		"jsonls",
+		"jinja_lsp",
 		"mutt_ls",
 		"pyright",
 		"yamlls",
@@ -28,11 +30,6 @@ require("mason-lspconfig").setup({
 	--clangd = {},
 
 	automatic_enable = true,
-})
-
-require('mason-nvim-lint').setup({
-	ensure_installed = { "vale", "jsonlint", "yamllint" },
-	ignore_install = { "checkpatch", "tflint", "janet", "clj-kondo", "inko", "ruby" },
 })
 
 -- Setup LSP Attachment keybinds here

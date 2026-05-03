@@ -19,7 +19,7 @@ opt.textwidth = 80     -- Wrap after 80 chars
 opt.smartindent = true -- Insert indents automatically
 
 -- !IFDEF LinuxTabs augroup
-opt.expandtab = false -- Convert tabstops to spaces when hitting TAB
+opt.expandtab = true -- Convert tabstops to spaces when hitting TAB
 opt.tabstop = 4       -- Size of an indent
 opt.shiftwidth = 4    -- Size of an indent
 opt.softtabstop = 4

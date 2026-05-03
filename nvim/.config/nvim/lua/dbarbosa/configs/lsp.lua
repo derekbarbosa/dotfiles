@@ -30,6 +30,10 @@ vim.lsp.config('jsonls', {
 	filetypes = { 'json', 'jsonc' },
 })
 
+vim.lsp.config('jinja-lsp', {
+	filetypes = { 'j2', '.yml.j2' },
+})
+
 vim.lsp.config('lua_ls', {
 	filetypes = {'lua',},
 	settings = {
@@ -67,3 +71,6 @@ vim.lsp.config('rust_analyzer', {
 	filetypes = { 'rs', 'rust', },
 })
 
+vim.lsp.config('yamlls', {
+	filetypes = { 'yaml', 'yml', 'yamlfile', },
+})

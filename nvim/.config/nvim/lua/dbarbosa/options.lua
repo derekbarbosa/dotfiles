@@ -55,6 +55,21 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	end
 })
 
+-- Linux Styling Autocommands
+vim.api.nvim_create_augroup("CKITabs", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = "LinuxTabs",
+	pattern = { "*.yml.j2", "*.yml", "*.j2"},
+	callback = function()
+		opt.textwidth = 80 -- Wrap after 80 chars
+		opt.tabstop = 2 -- Size of an indent
+		opt.shiftwidth = 2 -- Size of an indent
+		opt.softtabstop = 2
+		opt.autoindent = true -- allows `gq` to respect tabstops
+		opt.expandtab = true -- Convert tabstops to spaces when hitting TAB
+	end
+})
+
 -- Statusline Tweaks Autocommands
 vim.api.nvim_create_augroup("StatusLine", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {

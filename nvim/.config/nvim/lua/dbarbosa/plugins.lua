@@ -40,7 +40,10 @@ return {
 	},
 
 	-- TreeSitter (parser and syntax gen tool)
-	{ "nvim-treesitter/nvim-treesitter" },
+	{
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+    },
 
 	-- NVIM-tree (NERDTree but neovim)
 	{
@@ -56,4 +59,21 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
+
+    -- Opencode Configuration
+    {
+        "sudo-tee/opencode.nvim",
+        dependencies = {
+            {
+                "MeanderingProgrammer/render-markdown.nvim",
+                opts = {
+                    anti_conceal = { enabled = false },
+                    file_types = { 'markdown', 'opencode_output' },
+                },
+                ft = { 'markdown', 'Avante', 'copilot-chat', 'opencode_output' },
+            },
+            { 'saghen/blink.cmp', branch = "v1" },
+            'nvim-telescope/telescope.nvim',
+        },
+    }
 }

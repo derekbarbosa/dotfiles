@@ -14,7 +14,7 @@
 # Pipe the result to sed to remove the "Message-ID: " prefix and leading space.
 # Pipe to tr to remove any newline characters for a clean copy.
 # Finally, pipe the clean ID to wl-copy.
-formail -x Message-ID: | sed 's/^Message-ID: *//' | tr -d '\n' | wl-copy
+formail -x Message-ID: | sed -e 's/^Message-ID: *//' -e 's/<//;s/>//;s/^[[:space:]]*//;s/[[:space:]]*$//' | tr -d '\n' | wl-copy
 
 # (Optional) Send a desktop notification to confirm that the action was successful.
 notify-send "Neomutt" "Message-ID copied to clipboard."

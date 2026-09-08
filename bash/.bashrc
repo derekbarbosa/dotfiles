@@ -254,6 +254,13 @@ alias owners_check="pushd ~/scripts/owners-tools/; git pull; source venv/bin/act
 format_commits() {
   sed 's/\s.*$//' $1 | tr -s '\n' ' ' > $2
 }
+
+vf() {
+  local file
+  file=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+  [ -n "$file" ] && vim "$file"
+}
+
 export -f format_commits
 
 bind 'set show-all-if-ambiguous on'
@@ -261,15 +268,13 @@ bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
 #export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+#export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+export REQUESTS_CA_BUNDLE=/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 export KUBECONFIG=/home/$USER/.kubeconfig.ran-vcl101
 export GNOME_KEYRING_CONTROL=/run/user/4209965/keyring/
 
 LOCAL_BIN=/home/$USER/.local/bin
 GOPATH=/home/$USER/go/bin
-
-. "$HOME/gcp_api"
-. "$HOME/gemini_api_key"
 
 PATH=$PATH:$LOCAL_BIN:$GOPATH
 . "$HOME/.cargo/env"
